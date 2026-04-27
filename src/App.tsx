@@ -9,18 +9,25 @@ function App() {
     gender: "Male",
     address: "Hanoi",
   };
-  const todos=["Todo 1", "Todo 2", "Todo 3", "Todo 4", "Todo 5", "Todo 6"];
+  const [listTodo, setListTodo] = useState(["Todo 1", "Todo 2", "Todo 3", "Todo 4", "Todo 5", "Todo 6"]);
+  const handleTest =(name: string) => {
+   alert(`click me: ${name}`)
+  }
   return (
     <div>
-      <div className="parent">
-        <div className="child">Child 1</div>
-      </div>
-      <InputTodo name={name} age={age} hoidanit={info} />
-      <ul>
-        {todos.map((item, index) => {
-         return (<li key={index}>{item}</li>)
-        })}
-      </ul>
+      <InputTodo 
+      name={name} 
+      age={age} 
+      hoidanit={info} 
+      ericFuntion={handleTest} 
+      listTodo={listTodo}
+      setListTodo={setListTodo}/>
+      <br />
+       <ul>
+          {listTodo.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
     </div>
   );
 }
